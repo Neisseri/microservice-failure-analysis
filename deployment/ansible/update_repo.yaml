@@ -1,6 +1,6 @@
 ---
 - name: Update git with apt
-  hosts: workers
+  hosts: controller
   become: yes  # 使用root权限执行
   gather_facts: no  # 不收集主机信息
   tasks:
@@ -14,7 +14,7 @@
         state: latest
 
 - name: Ensure repo is updated on workers
-  hosts: workers
+  hosts: controller
   become: no 
   gather_facts: no  # 不收集主机信息
   vars_files:
